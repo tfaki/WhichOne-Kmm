@@ -11,6 +11,8 @@ import Firebase
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     
+    var isShowForceUpdate = false
+    
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
@@ -57,9 +59,11 @@ extension AppDelegate {
 extension AppDelegate : OnUpdateNeededListener {
     func onUpdateNeeded() {
         print("onUpdateNeeded()")
+        self.isShowForceUpdate = true
     }
 
     func onNoUpdateNeeded() {
         print("onNoUpdateNeeded()")
+        self.isShowForceUpdate = false
     }
 }

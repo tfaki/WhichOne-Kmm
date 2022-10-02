@@ -34,6 +34,8 @@
 		EEAFFAF128E9D070002FCA56 /* WOLottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAFFAF028E9D070002FCA56 /* WOLottieView.swift */; };
 		EEAFFAF428E9D0BA002FCA56 /* opps.json in Resources */ = {isa = PBXBuildFile; fileRef = EEAFFAF328E9D0BA002FCA56 /* opps.json */; };
 		EEAFFAF628E9D426002FCA56 /* WOButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAFFAF528E9D426002FCA56 /* WOButton.swift */; };
+		EEAFFAFA28E9FC12002FCA56 /* ForceUpdateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAFFAF928E9FC12002FCA56 /* ForceUpdateScreen.swift */; };
+		EEAFFAFC28E9FFE3002FCA56 /* force-update.json in Resources */ = {isa = PBXBuildFile; fileRef = EEAFFAFB28E9FFE3002FCA56 /* force-update.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		EEAFFAF028E9D070002FCA56 /* WOLottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WOLottieView.swift; sourceTree = "<group>"; };
 		EEAFFAF328E9D0BA002FCA56 /* opps.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = opps.json; path = ../../../../../../Desktop/opps.json; sourceTree = "<group>"; };
 		EEAFFAF528E9D426002FCA56 /* WOButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WOButton.swift; sourceTree = "<group>"; };
+		EEAFFAF928E9FC12002FCA56 /* ForceUpdateScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForceUpdateScreen.swift; sourceTree = "<group>"; };
+		EEAFFAFB28E9FFE3002FCA56 /* force-update.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "force-update.json"; path = "../../../../../../Desktop/force-update.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				EE4EFB1228E70A910015CE53 /* ForceUpdateChecker.swift */,
+				EEAFFAF928E9FC12002FCA56 /* ForceUpdateScreen.swift */,
 			);
 			path = ForceUpdate;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 		EEAFFAF228E9D090002FCA56 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				EEAFFAFB28E9FFE3002FCA56 /* force-update.json */,
 				EEAFFAF328E9D0BA002FCA56 /* opps.json */,
 			);
 			path = Lottie;
@@ -306,6 +312,7 @@
 			files = (
 				EEAFFAF428E9D0BA002FCA56 /* opps.json in Resources */,
 				058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */,
+				EEAFFAFC28E9FFE3002FCA56 /* force-update.json in Resources */,
 				058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,6 +358,7 @@
 				EEAFFAEC28E9BEF3002FCA56 /* WOErrorView.swift in Sources */,
 				EE34F55128E349870094365D /* WOImage.swift in Sources */,
 				EE4EFB2A28E72A150015CE53 /* WOStepper.swift in Sources */,
+				EEAFFAFA28E9FC12002FCA56 /* ForceUpdateScreen.swift in Sources */,
 				EE4EFB2E28E744360015CE53 /* WOAppBar.swift in Sources */,
 				EE89F3D528E235D100446424 /* ResultScreen.swift in Sources */,
 				EEA0A19F28E1B59300D9F0CA /* SurveyViewModel.swift in Sources */,

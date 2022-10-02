@@ -11,17 +11,22 @@ import shared
 
 struct SplashScreen: View {
     
-    @State var isActive:Bool = false
+    @State var isActive: Bool = false
+    var isShowForceUpdate = false
     private let networkModule = NetworkModule()
     
     init(appDelegate: AppDelegate) {
-        
+        isShowForceUpdate = appDelegate.isShowForceUpdate
     }
     
     var body: some View {
         VStack {
             if self.isActive {
-                SurveyScreen(remoteClient: networkModule.remoteClient)
+                if isShowForceUpdate {
+                    ForceUpdateScreen()
+                } else {
+                    SurveyScreen(remoteClient: networkModule.remoteClient)
+                }
             } else {
                 ZStack {
                     Image("splash-logo")

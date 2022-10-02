@@ -45,7 +45,7 @@ struct SurveyScreen: View {
                     
                 case .loaded:
                     
-                    WOAppBar(title: "Rings Of Power")
+                    WOAppBar(title: "RINGS OF POWER")
                     VStack {
                         if questionImageList.count > 0 {
                             if #available(iOS 15.0, *) {
