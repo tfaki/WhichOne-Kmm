@@ -20,22 +20,34 @@ class SurveyViewModel : ObservableObject {
     @Published var title: String = ""
     @Published var imageSource: String = ""
     @Published var description: String = ""
+    @Published var state: LoadingState = .loading
     
     init(getSurveys: GetSurveys) {
         self.getSurveys = getSurveys
         getRingsOfPowers()
     }
     
+    enum LoadingState {
+            case loading
+            case loaded
+        }
+    
     func getRingsOfPowers() {
+        self.state = .loading
             do {
                 try getSurveys.execute().collectCommon(
                     coroutineScope: nil,
                     callback: { dataState in
-                        self.questions = (dataState?.questions)!
-                        self.title = (dataState?.character?.title)!
-                        self.description = (dataState?.character?.desc)!
-                        self.imageSource = (dataState?.character?.srcSet?.nineHundred)!
-                        self.backgroundPictures = (dataState?.backgroundPictures) as! [String]
+                        if dataState != nil {
+                            self.state = .loaded
+                            self.questions = (dataState?.questions)!
+                            self.title = (dataState?.character?.title)!
+                            self.description = (dataState?.character?.desc)!
+                            self.imageSource = (dataState?.character?.srcSet?.nineHundred) ?? ""
+                            self.backgroundPictures = (dataState?.backgroundPictures)!
+                        } else {
+                            
+                        }
                     }
                 )
             }catch{

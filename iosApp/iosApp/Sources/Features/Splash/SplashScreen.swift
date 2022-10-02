@@ -13,7 +13,10 @@ struct SplashScreen: View {
     
     @State var isActive:Bool = false
     private let networkModule = NetworkModule()
-    let bgColor = Color(0xFF3552A2)
+    
+    init(appDelegate: AppDelegate) {
+        
+    }
     
     var body: some View {
         VStack {
@@ -29,14 +32,14 @@ struct SplashScreen: View {
                     maxWidth: .infinity,
                     maxHeight: .infinity
                 )
-                .background(bgColor)
+                .background(Color("SolidBlue"))
             }
         }
         .frame(
             maxWidth: .infinity,
             maxHeight: .infinity
         )
-        .background(bgColor)
+        .background(Color("SolidBlue"))
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                 withAnimation {

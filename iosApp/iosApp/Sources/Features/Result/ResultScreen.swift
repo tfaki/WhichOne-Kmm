@@ -12,11 +12,30 @@ struct ResultScreen: View {
     @Binding var title: String
     @Binding var imageSource: String
     @Binding var description: String
-    let bgColor = Color(0xFF3552A2)
+    var clicked: (() -> Void)
     
     var body: some View {
         VStack {
-            CustomImageView(urlString: imageSource)
+            if #available(iOS 15.0, *) {
+                AsyncImage(url: URL(string: imageSource)) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                } placeholder: {
+                    Color.purple.opacity(0.1)
+                }
+                .frame(
+                    minWidth: 0,
+                    maxWidth: .infinity,
+                    minHeight: 250,
+                    maxHeight: 450
+                )
+                .cornerRadius(10)
+                .padding(EdgeInsets(top: 18, leading: 8, bottom: 0, trailing: 8))
+            } else {
+                WhichOneImage(urlString: imageSource)
+            }
+
             Spacer()
                 .frame(height: 32)
             Text(title)
@@ -27,6 +46,7 @@ struct ResultScreen: View {
                 .multilineTextAlignment(.center)
                 .foregroundColor(Color.white)
                 .font(.system(size: 24, weight: .heavy, design: .default))
+                .padding(EdgeInsets(top: 8, leading: 12, bottom: 0, trailing: 12))
             
             Spacer()
                 .frame(height: 12)
@@ -39,6 +59,27 @@ struct ResultScreen: View {
                 .multilineTextAlignment(.center)
                 .foregroundColor(Color.white)
                 .font(.system(size: 16, design: .default))
+                .padding(EdgeInsets(top: 8, leading: 12, bottom: 0, trailing: 12))
+            
+            
+            Spacer()
+            
+            Button(action: clicked) {
+                        HStack {
+                            Text("AGAIN")
+                        }
+                        .foregroundColor(Color("SolidBlue"))
+                        .frame(
+                            minWidth: 0,
+                            maxWidth: .infinity,
+                            minHeight: 0,
+                            maxHeight: 50
+                        )
+                        .background(Color.white)
+                        .font(.system(size: 16, weight: .heavy, design: .default))
+                        .cornerRadius(8)
+                        .padding(EdgeInsets(top: 0, leading: 12, bottom: 18, trailing: 12))
+                    }
         }
         .frame(
             minWidth: 0,
@@ -47,6 +88,6 @@ struct ResultScreen: View {
             maxHeight: .infinity,
             alignment: .topLeading
         )
-        .background(bgColor)
+        .background(Color("SolidBlue"))
     }
 }

@@ -5,9 +5,8 @@ struct SurveyScreen: View {
     private let getSurveysModule: GetSurveysModule
     private let remoteClient: RemoteClient
     @State private var questionIndex = 0
-    @State private var selectedChoice: String?
+    @State private var selectedChoice: String = ""
     @State private var navigateResult: Bool = false
-    
     @ObservedObject var viewModel: SurveyViewModel
     
     init(remoteClient: RemoteClient) {
@@ -23,80 +22,112 @@ struct SurveyScreen: View {
     var body: some View {
         let questionList = viewModel.questions
         let questionImageList = viewModel.backgroundPictures
-        let bgColor = Color(0xFF3552A2)
-        let transparent = Color(0xFFFFFFFFF)
-        let DeepBlue = Color(0xFF005A70)
         ZStack {
             VStack(spacing: 16) {
-                if questionImageList.count > 0 {
-                    CustomImageView(urlString: questionImageList[questionIndex])
-                }
-                
-                if questionList.count > 0 {
-                    Text(questionList[questionIndex].questionText ?? "")
-                        .frame(
-                            minWidth: 0,
-                            maxWidth: .infinity
-                        )
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(Color.black)
-                        .font(.system(size: 16, weight: .heavy, design: .default))
-                        .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
-                    
-                    if questionList[questionIndex].choices!.count > 0 {
-                        ForEach(questionList[questionIndex].choices!, id: \.self) { choice in
-                            Button(action: {
-                                selectedChoice = choice + String(questionIndex)
-                                if questionIndex < questionList.count - 1 {
-                                    questionIndex += 1
-                                } else {
-                                    navigateResult = true
+                switch viewModel.state {
+                case .loading:
+                    VStack {
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle(tint: Color.white))
+                    }
+                    .frame(
+                        minWidth: 0,
+                        maxWidth: .infinity,
+                        minHeight: 0,
+                        maxHeight: .infinity,
+                        alignment: .center
+                    )
+                case .loaded:
+                    WOAppBar(title: "Rings Of Power")
+                    VStack {
+                        if questionImageList.count > 0 {
+                            if #available(iOS 15.0, *) {
+                                AsyncImage(url: URL(string: questionImageList[questionIndex])) { image in
+                                    image
+                                        .resizable()
+                                        .scaledToFill()
+                                } placeholder: {
+                                    Color.purple.opacity(0.1)
                                 }
-                            }){
-                                Text(choice)
-                                    .frame(
-                                        maxWidth: .infinity
-                                    )
-                                    .padding()
-                                    .foregroundColor(self.selectedChoice == choice + String(questionIndex) ? Color.white : Color.black)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(bgColor, lineWidth: 2))
-                                
+                                .frame(
+                                    minWidth: 0,
+                                    maxWidth: .infinity,
+                                    minHeight: 250,
+                                    maxHeight: 250
+                                )
+                                .cornerRadius(10)
+                                .padding(EdgeInsets(top: 18, leading: 8, bottom: 0, trailing: 8))
+                            } else {
+                                WhichOneImage(urlString: questionImageList[questionIndex])
                             }
-                            .background(self.selectedChoice == choice + String(questionIndex) ? DeepBlue: transparent)
-                            .cornerRadius(10)
-                            .shadow(radius: 10)
-                            .padding(EdgeInsets(top: 0, leading: 8, bottom: 4, trailing: 8))
-                            .sheet(isPresented: $navigateResult, onDismiss: {
-                                questionIndex = 0
-                                viewModel.getRingsOfPowers()
-                            }) {
-                                ResultScreen(title: $viewModel.title, imageSource: $viewModel.imageSource, description: $viewModel.description)
+                            
+                        }
+                        
+                        LinearProgressStepper(value: questionIndex, maximum: questionList.count)
+                            .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
+                        
+                        if questionList.count > 0 {
+                            Text(questionList[questionIndex].questionText ?? "")
+                                .frame(
+                                    minWidth: 0,
+                                    maxWidth: .infinity
+                                )
+                                .multilineTextAlignment(.center)
+                                .foregroundColor(Color("DeepBlue"))
+                                .font(.system(size: 16, weight: .heavy, design: .default))
+                                .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
+                            
+                            if questionList[questionIndex].choices!.count > 0 {
+                                ForEach(questionList[questionIndex].choices!, id: \.self) { choice in
+                                    SelectionBox(
+                                        selectedChoice: self.selectedChoice,
+                                        choice: choice,
+                                        questionIndex: self.questionIndex,
+                                        clicked: {
+                                            selectedChoice = choice + String(questionIndex)
+                                            if questionIndex < questionList.count - 1 {
+                                                let seconds = 0.75
+                                                DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                                                    questionIndex += 1
+                                                }
+                                                
+                                            } else {
+                                                navigateResult = true
+                                            }
+                                        }
+                                    )
+                                    .sheet(isPresented: $navigateResult, onDismiss: {
+                                        questionIndex = 0
+                                        viewModel.getRingsOfPowers()
+                                    }) {
+                                        ResultScreen(
+                                            title: $viewModel.title,
+                                            imageSource: $viewModel.imageSource,
+                                            description: $viewModel.description,
+                                            clicked: {
+                                                questionIndex = 0
+                                                viewModel.getRingsOfPowers()
+                                            }
+                                        )
+                                    }
+                                }
                             }
                         }
                     }
+                    .frame(
+                        minWidth: 0,
+                        maxWidth: .infinity,
+                        minHeight: 0,
+                        maxHeight: .infinity,
+                        alignment: .topLeading
+                    )
+                    .background(Color.white)
+                    .clipShape(RoundedRectangle(cornerRadius:10))
+                    .padding(EdgeInsets(top: 16, leading: 8, bottom: 8, trailing: 8))
                 }
             }
-            .frame(
-                minWidth: 0,
-                maxWidth: .infinity,
-                minHeight: 0,
-                maxHeight: .infinity,
-                alignment: .topLeading
-            )
-            .background(Color.white)
-            .clipShape(RoundedRectangle(cornerRadius:10))
-            .padding(EdgeInsets(top: 56, leading: 8, bottom: 8, trailing: 8))
         }
-        .frame(
-            minWidth: 0,
-            maxWidth: .infinity,
-            minHeight: 0,
-            maxHeight: .infinity,
-            alignment: .topLeading
-        )
-        .background(bgColor)
+        .background(Color("SolidBlue"))
     }
 }
 
@@ -110,57 +141,4 @@ extension Color {
             opacity: alpha
         )
     }
-}
-
-struct CustomImageView: View {
-    var urlString: String
-    @ObservedObject var imageLoader = ImageLoaderService()
-    @State var image: UIImage = UIImage()
-    
-    var body: some View {
-        VStack {
-            Image(uiImage: image)
-                .resizable()
-                .shadow(radius: 10)
-                .aspectRatio(contentMode: .fill)
-                .frame(
-                    minWidth: 0,
-                    maxWidth: .infinity,
-                    minHeight: 0,
-                    maxHeight: .infinity
-                )
-                .onReceive(imageLoader.$image) { image in
-                    self.image = image
-                }
-                .onAppear {
-                    imageLoader.loadImage(for: urlString)
-                }
-        }
-        .frame(
-            minWidth: 0,
-            maxWidth: .infinity,
-            minHeight: 250,
-            maxHeight: 250
-        )
-        .clipShape(RoundedRectangle(cornerRadius:10))
-        .padding(EdgeInsets(top: 18, leading: 8, bottom: 0, trailing: 8))
-        
-    }
-}
-
-class ImageLoaderService: ObservableObject {
-    @Published var image: UIImage = UIImage()
-    
-    func loadImage(for urlString: String) {
-        guard let url = URL(string: urlString) else { return }
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data else { return }
-            DispatchQueue.main.async {
-                self.image = UIImage(data: data) ?? UIImage()
-            }
-        }
-        task.resume()
-    }
-    
 }

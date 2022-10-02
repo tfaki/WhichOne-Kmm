@@ -11,7 +11,14 @@ import io.ktor.client.request.*
 class RemoteClientImpl(private val httpClient: HttpClient): RemoteClient {
     override suspend fun getRingsOfThePowerSurveys(): RingsOfThePowerResponse {
         return httpClient.get(
-            ENDPOINT
-        )
+            BASE_URL
+        ) {
+            url {
+                path("")
+                parameters.append("count", "10")
+            }
+        }
     }
 }
+
+const val BASE_URL = ""
