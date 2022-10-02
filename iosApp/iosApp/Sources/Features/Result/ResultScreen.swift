@@ -64,22 +64,24 @@ struct ResultScreen: View {
             
             Spacer()
             
-            Button(action: clicked) {
-                        HStack {
-                            Text("AGAIN")
-                        }
-                        .foregroundColor(Color("SolidBlue"))
-                        .frame(
-                            minWidth: 0,
-                            maxWidth: .infinity,
-                            minHeight: 0,
-                            maxHeight: 50
-                        )
-                        .background(Color.white)
-                        .font(.system(size: 16, weight: .heavy, design: .default))
-                        .cornerRadius(8)
-                        .padding(EdgeInsets(top: 0, leading: 12, bottom: 18, trailing: 12))
-                    }
+            WOButton(buttonText: "AGAIN", clicked: clicked)
+            
+//            Button(action: clicked) {
+//                        HStack {
+//                            Text("AGAIN")
+//                        }
+//                        .foregroundColor(Color("SolidBlue"))
+//                        .frame(
+//                            minWidth: 0,
+//                            maxWidth: .infinity,
+//                            minHeight: 0,
+//                            maxHeight: 50
+//                        )
+//                        .background(Color.white)
+//                        .font(.system(size: 16, weight: .heavy, design: .default))
+//                        .cornerRadius(8)
+//                        .padding(EdgeInsets(top: 0, leading: 12, bottom: 18, trailing: 12))
+//                    }
         }
         .frame(
             minWidth: 0,

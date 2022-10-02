@@ -25,6 +25,7 @@ struct SurveyScreen: View {
         ZStack {
             VStack(spacing: 16) {
                 switch viewModel.state {
+                    
                 case .loading:
                     VStack {
                         ProgressView()
@@ -37,7 +38,13 @@ struct SurveyScreen: View {
                         maxHeight: .infinity,
                         alignment: .center
                     )
+                    
+                case .error: WOErrorView(clicked: {
+                    viewModel.getRingsOfPowers()
+                })
+                    
                 case .loaded:
+                    
                     WOAppBar(title: "Rings Of Power")
                     VStack {
                         if questionImageList.count > 0 {
@@ -63,7 +70,7 @@ struct SurveyScreen: View {
                             
                         }
                         
-                        LinearProgressStepper(value: questionIndex, maximum: questionList.count)
+                        WOStepper(value: questionIndex, maximum: questionList.count)
                             .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
                         
                         if questionList.count > 0 {
@@ -79,7 +86,7 @@ struct SurveyScreen: View {
                             
                             if questionList[questionIndex].choices!.count > 0 {
                                 ForEach(questionList[questionIndex].choices!, id: \.self) { choice in
-                                    SelectionBox(
+                                    WOSelectionBox(
                                         selectedChoice: self.selectedChoice,
                                         choice: choice,
                                         questionIndex: self.questionIndex,

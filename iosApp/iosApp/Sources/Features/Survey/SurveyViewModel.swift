@@ -30,6 +30,7 @@ class SurveyViewModel : ObservableObject {
     enum LoadingState {
             case loading
             case loaded
+            case error
         }
     
     func getRingsOfPowers() {
@@ -46,12 +47,12 @@ class SurveyViewModel : ObservableObject {
                             self.imageSource = (dataState?.character?.srcSet?.nineHundred) ?? ""
                             self.backgroundPictures = (dataState?.backgroundPictures)!
                         } else {
-                            
+                            self.state = .error
                         }
                     }
                 )
             }catch{
-            
+                self.state = .error
             }
         }
 }

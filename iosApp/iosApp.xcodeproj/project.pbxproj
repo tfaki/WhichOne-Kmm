@@ -12,7 +12,7 @@
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		23E4A1681F34DFCF77F10E77 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C8359F354B19C3887A3AB8 /* Pods_iosApp.framework */; };
 		7555FF83242A565900829871 /* SurveyScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* SurveyScreen.swift */; };
-		EE34F55128E349870094365D /* WhichOneImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE34F55028E349870094365D /* WhichOneImage.swift */; };
+		EE34F55128E349870094365D /* WOImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE34F55028E349870094365D /* WOImage.swift */; };
 		EE4EFB1328E70A910015CE53 /* ForceUpdateChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4EFB1228E70A910015CE53 /* ForceUpdateChecker.swift */; };
 		EE4EFB1628E710130015CE53 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = EE4EFB1528E710130015CE53 /* FirebaseAnalytics */; };
 		EE4EFB1828E710130015CE53 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = EE4EFB1728E710130015CE53 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -23,13 +23,17 @@
 		EE4EFB2228E710130015CE53 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = EE4EFB2128E710130015CE53 /* FirebaseRemoteConfig */; };
 		EE4EFB2428E710130015CE53 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EE4EFB2328E710130015CE53 /* FirebaseRemoteConfigSwift */; };
 		EE4EFB2628E719970015CE53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4EFB2528E719960015CE53 /* AppDelegate.swift */; };
-		EE4EFB2828E71B400015CE53 /* UpdateAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4EFB2728E71B400015CE53 /* UpdateAppViewController.swift */; };
-		EE4EFB2A28E72A150015CE53 /* LinearProgressStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4EFB2928E72A150015CE53 /* LinearProgressStepper.swift */; };
-		EE4EFB2C28E738740015CE53 /* SelectionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4EFB2B28E738740015CE53 /* SelectionBox.swift */; };
+		EE4EFB2A28E72A150015CE53 /* WOStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4EFB2928E72A150015CE53 /* WOStepper.swift */; };
+		EE4EFB2C28E738740015CE53 /* WOSelectionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4EFB2B28E738740015CE53 /* WOSelectionBox.swift */; };
 		EE4EFB2E28E744360015CE53 /* WOAppBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4EFB2D28E744360015CE53 /* WOAppBar.swift */; };
 		EE89F3D528E235D100446424 /* ResultScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE89F3D428E235D100446424 /* ResultScreen.swift */; };
 		EE89F3D828E24FB600446424 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE89F3D728E24FB600446424 /* SplashScreen.swift */; };
 		EEA0A19F28E1B59300D9F0CA /* SurveyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA0A19E28E1B59300D9F0CA /* SurveyViewModel.swift */; };
+		EEAFFAEC28E9BEF3002FCA56 /* WOErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAFFAEB28E9BEF3002FCA56 /* WOErrorView.swift */; };
+		EEAFFAEF28E9CF62002FCA56 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = EEAFFAEE28E9CF62002FCA56 /* Lottie */; };
+		EEAFFAF128E9D070002FCA56 /* WOLottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAFFAF028E9D070002FCA56 /* WOLottieView.swift */; };
+		EEAFFAF428E9D0BA002FCA56 /* opps.json in Resources */ = {isa = PBXBuildFile; fileRef = EEAFFAF328E9D0BA002FCA56 /* opps.json */; };
+		EEAFFAF628E9D426002FCA56 /* WOButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAFFAF528E9D426002FCA56 /* WOButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,16 +46,19 @@
 		7555FF82242A565900829871 /* SurveyScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyScreen.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9C8359F354B19C3887A3AB8 /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE34F55028E349870094365D /* WhichOneImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhichOneImage.swift; sourceTree = "<group>"; };
+		EE34F55028E349870094365D /* WOImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WOImage.swift; sourceTree = "<group>"; };
 		EE4EFB1228E70A910015CE53 /* ForceUpdateChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForceUpdateChecker.swift; sourceTree = "<group>"; };
 		EE4EFB2528E719960015CE53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EE4EFB2728E71B400015CE53 /* UpdateAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAppViewController.swift; sourceTree = "<group>"; };
-		EE4EFB2928E72A150015CE53 /* LinearProgressStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearProgressStepper.swift; sourceTree = "<group>"; };
-		EE4EFB2B28E738740015CE53 /* SelectionBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionBox.swift; sourceTree = "<group>"; };
+		EE4EFB2928E72A150015CE53 /* WOStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WOStepper.swift; sourceTree = "<group>"; };
+		EE4EFB2B28E738740015CE53 /* WOSelectionBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WOSelectionBox.swift; sourceTree = "<group>"; };
 		EE4EFB2D28E744360015CE53 /* WOAppBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WOAppBar.swift; sourceTree = "<group>"; };
 		EE89F3D428E235D100446424 /* ResultScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultScreen.swift; sourceTree = "<group>"; };
 		EE89F3D728E24FB600446424 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		EEA0A19E28E1B59300D9F0CA /* SurveyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewModel.swift; sourceTree = "<group>"; };
+		EEAFFAEB28E9BEF3002FCA56 /* WOErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WOErrorView.swift; sourceTree = "<group>"; };
+		EEAFFAF028E9D070002FCA56 /* WOLottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WOLottieView.swift; sourceTree = "<group>"; };
+		EEAFFAF328E9D0BA002FCA56 /* opps.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = opps.json; path = ../../../../../../Desktop/opps.json; sourceTree = "<group>"; };
+		EEAFFAF528E9D426002FCA56 /* WOButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WOButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +71,7 @@
 				EE4EFB1628E710130015CE53 /* FirebaseAnalytics in Frameworks */,
 				EE4EFB2428E710130015CE53 /* FirebaseRemoteConfigSwift in Frameworks */,
 				EE4EFB2028E710130015CE53 /* FirebaseCrashlytics in Frameworks */,
+				EEAFFAEF28E9CF62002FCA56 /* Lottie in Frameworks */,
 				EE4EFB1828E710130015CE53 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				23E4A1681F34DFCF77F10E77 /* Pods_iosApp.framework in Frameworks */,
 				EE4EFB1E28E710130015CE53 /* FirebaseAppDistribution-Beta in Frameworks */,
@@ -130,10 +138,13 @@
 		EE34F54F28E349790094365D /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				EE34F55028E349870094365D /* WhichOneImage.swift */,
-				EE4EFB2928E72A150015CE53 /* LinearProgressStepper.swift */,
-				EE4EFB2B28E738740015CE53 /* SelectionBox.swift */,
+				EE34F55028E349870094365D /* WOImage.swift */,
+				EE4EFB2928E72A150015CE53 /* WOStepper.swift */,
+				EE4EFB2B28E738740015CE53 /* WOSelectionBox.swift */,
 				EE4EFB2D28E744360015CE53 /* WOAppBar.swift */,
+				EEAFFAEB28E9BEF3002FCA56 /* WOErrorView.swift */,
+				EEAFFAF028E9D070002FCA56 /* WOLottieView.swift */,
+				EEAFFAF528E9D426002FCA56 /* WOButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -174,6 +185,7 @@
 		EEA9A13928E2014B006F0EBD /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				EEAFFAF228E9D090002FCA56 /* Lottie */,
 				EE34F54F28E349790094365D /* Components */,
 				EEA9A13A28E2015C006F0EBD /* Features */,
 			);
@@ -206,9 +218,16 @@
 			children = (
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				EE4EFB2528E719960015CE53 /* AppDelegate.swift */,
-				EE4EFB2728E71B400015CE53 /* UpdateAppViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		EEAFFAF228E9D090002FCA56 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				EEAFFAF328E9D0BA002FCA56 /* opps.json */,
+			);
+			path = Lottie;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +256,7 @@
 				EE4EFB1F28E710130015CE53 /* FirebaseCrashlytics */,
 				EE4EFB2128E710130015CE53 /* FirebaseRemoteConfig */,
 				EE4EFB2328E710130015CE53 /* FirebaseRemoteConfigSwift */,
+				EEAFFAEE28E9CF62002FCA56 /* Lottie */,
 			);
 			productName = iosApp;
 			productReference = 7555FF7B242A565900829871 /* iosApp.app */;
@@ -268,6 +288,7 @@
 			mainGroup = 7555FF72242A565900829871;
 			packageReferences = (
 				EE4EFB1428E710130015CE53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				EEAFFAED28E9CF62002FCA56 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 7555FF7C242A565900829871 /* Products */;
 			projectDirPath = "";
@@ -283,6 +304,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEAFFAF428E9D0BA002FCA56 /* opps.json in Resources */,
 				058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */,
 				058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */,
 			);
@@ -321,12 +343,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE4EFB2628E719970015CE53 /* AppDelegate.swift in Sources */,
-				EE4EFB2C28E738740015CE53 /* SelectionBox.swift in Sources */,
+				EEAFFAF128E9D070002FCA56 /* WOLottieView.swift in Sources */,
+				EEAFFAF628E9D426002FCA56 /* WOButton.swift in Sources */,
+				EE4EFB2C28E738740015CE53 /* WOSelectionBox.swift in Sources */,
 				EE89F3D828E24FB600446424 /* SplashScreen.swift in Sources */,
 				EE4EFB1328E70A910015CE53 /* ForceUpdateChecker.swift in Sources */,
-				EE4EFB2828E71B400015CE53 /* UpdateAppViewController.swift in Sources */,
-				EE34F55128E349870094365D /* WhichOneImage.swift in Sources */,
-				EE4EFB2A28E72A150015CE53 /* LinearProgressStepper.swift in Sources */,
+				EEAFFAEC28E9BEF3002FCA56 /* WOErrorView.swift in Sources */,
+				EE34F55128E349870094365D /* WOImage.swift in Sources */,
+				EE4EFB2A28E72A150015CE53 /* WOStepper.swift in Sources */,
 				EE4EFB2E28E744360015CE53 /* WOAppBar.swift in Sources */,
 				EE89F3D528E235D100446424 /* ResultScreen.swift in Sources */,
 				EEA0A19F28E1B59300D9F0CA /* SurveyViewModel.swift in Sources */,
@@ -528,6 +552,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		EEAFFAED28E9CF62002FCA56 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -570,6 +602,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EE4EFB1428E710130015CE53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseRemoteConfigSwift;
+		};
+		EEAFFAEE28E9CF62002FCA56 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EEAFFAED28E9CF62002FCA56 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

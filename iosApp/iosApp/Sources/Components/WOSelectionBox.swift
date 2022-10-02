@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct SelectionBox: View {
+struct WOSelectionBox: View {
     var selectedChoice: String
     var choice: String
     var questionIndex: Int

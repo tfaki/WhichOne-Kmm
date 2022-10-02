@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct LinearProgressStepper: View {
+struct WOStepper: View {
   var value: Int
   var maximum: Int = 10
   var height: CGFloat = 8
