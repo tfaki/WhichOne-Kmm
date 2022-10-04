@@ -17,9 +17,9 @@ And soon you will see it in the app store.
 ## iOS SCREENS(Journey - Error View - Force Update)
 
 <p align="center">
- <img src="happy_path.gif" width="33%"/>
-  <img src="error.gif" width="33%"/>
-  <img src="force_update.gif" width="33%"/>
+ <img src="happy_path.gif" width="30%"/>
+  <img src="error.gif" width="30%"/>
+  <img src="force_update.gif" width="30%"/>
 </p>
   
   <p align="center">
